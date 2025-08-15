@@ -36,11 +36,13 @@ int main() {
             while (getchar() != '\n'); // Clear input buffer
             scanf("%255[^\n]", text);
             
-            printf("Enter the shift value (1-25): ");
-            while (scanf("%d", &shift) != 1 || shift < 1 || shift > 25) {
-                printf("Invalid shift! Please enter a number between 1 and 25: ");
+            printf("Enter the shift value (any integer): ");
+            while (scanf("%d", &shift) != 1) {
+                printf("Invalid input! Please enter a valid integer: ");
                 while (getchar() != '\n');
             }
+            // Normalize shift to be within 0-25
+            shift = ((shift % 26) + 26) % 26;
             
             char *encrypted = cipher(text, shift);
             printf("\nEncrypted text: %s\n\n", encrypted);
@@ -65,11 +67,13 @@ int main() {
             }
             
             if (use_shift) {
-                printf("\nEnter the shift value (1-25): ");
-                while (scanf("%d", &shift) != 1 || shift < 1 || shift > 25) {
-                    printf("Invalid shift! Please enter a number between 1 and 25: ");
+                printf("\nEnter the shift value (any integer): ");
+                while (scanf("%d", &shift) != 1) {
+                    printf("Invalid input! Please enter a valid integer: ");
                     while (getchar() != '\n');
                 }
+                // Normalize shift to be within 0-25
+                shift = ((shift % 26) + 26) % 26;
                 
                 char *decrypted = cipher(text, -shift);
                 printf("\nDecrypted text: %s\n\n", decrypted);

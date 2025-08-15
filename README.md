@@ -35,7 +35,7 @@ C-aesar/
 ## Building and Running
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/C-aesar.git
+git clone https://github.com/DavidLondo/C-aesar.git
 cd C-aesar
 ```
 
